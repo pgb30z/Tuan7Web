@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <style>
+        body{
+            background-color: #e6ffe6;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .form-container{
+            width: 600px;
+            margin: 50px auto;
+            border: 2px solid #339966;
+            background-color: #ccffcc;
+        }
+        h2{
+            text-align: center;
+            background-color: #ccffcc;
+            margin: 0;
+            padding: 10px;
+            font-size: 20px;
+            color: #006633;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td{
+            padding: 8px;
+        }
+        td:first-child{
+            text-align: right;
+            width: 200px;
+        }
+        input,select{
+            width: 200px;
+        }
+        .button-row{
+            text-align: center;
+            padding: 10px;
+        }
+        .birthdate select,
+        .birthdate input[type="text"] {
+            width: auto;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Register Form</h2>
+        <form name="registerForm" onsubmit="return validateForm()" action="thongtin.html" method="get">
+            <table>
+                <tr>
+                    <td>Họ và tên (*):</td>
+                    <td><input type="text" name="hoten"></td>
+                </tr>
+                <tr>
+                    <td>Tên Đăng nhập (*):</td>
+                    <td><input type="text" name="username"></td>
+                </tr>
+                <tr>
+                    <td>Mật khẩu (*):</td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td>Xác nhận mật khẩu (*):</td>
+                    <td><input type="password" name="confirm"></td>
+                </tr>
+                <tr>
+                    <td>Ngày sinh:</td>
+                    <td class="birthdate">
+                        Ngày:
+                        <select name="ngay" id="">
+                            <script>for(let i=1;i<=31;i++)document.write(`<option value="${i}">${i}</option>`);</script>                           
+                        </select>
+                        Tháng:
+                        <select name="thang" id="">
+                            <script>for(let i=1;i<=12;i++)document.write(`<option value="${i}">${i}</option>`);</script>
+                        </select>
+                        Năm:
+                        <input type="text" name="nam" value="1940" size="4">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Điện thoại:</td>
+                    <td><input type="text" name="dienthoai"></td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ:</td>
+                    <td><input type="text" name="diachi"></td>
+                </tr>
+                <tr>
+                    <td>Email khác:</td>
+                    <td><input type="text" name="email"></td>
+                </tr>
+                <tr>
+                    <td>Sở thích:</td>
+                    <td>
+                        <select name="sothich">
+                            <option>Ca Nhạc</option>
+                            <option>Thể Thao</option>
+                            <option>Du Lịch</option>
+                            <option>Khác</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="button-row">
+                        <input type="submit" value="Dang Ky">
+                        <input type="reset" value="Huy">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        function validateForm(){
+            const f = document.forms["registerForm"];
+
+            if(f.hoten.value.trim() === ""){
+                alert("Vui lòng nhập họ tên");
+                f.hoten.focus();
+                return false;
+            }
+            if(f.username.value.length < 6){
+                alert("Tên đăng nhập phải ít nhất 6 ký tự");
+                f.username.focus();
+                return false;
+            }
+            if(f.password.value === ""){
+                alert("Vui lòng nhập mật khẩu");
+                f.password.focus();
+                return false;
+            }
+            if(f.password.value !== f.confirm.value){
+                alert("Mật khẩu xác nhận không khớp");
+                f.confirm.focus();
+                return false;
+            }
+            if(f.dienthoai.value !== "" && !/^\d+$/.test(f.dienthoai.value)){
+                alert("Điện thoại phải là số");
+                f.dienthoai.focus();
+                return false;
+            }
+            if(f.email.value !== "" && !/^[\w.-]+@[\w.-]+\.\w{2,4}$/.test(f.email.value)){
+                alert("Email không đúng định dạng");
+                f.email.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

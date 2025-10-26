@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin đã đăng ký</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #eef;
+        }
+        
+        .info-box {
+            background-color: #fff;
+            width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid #3399cc;
+            border-radius: 10px;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #006699;
+        }
+        
+        p {
+            font-size: 16px;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="info-box">
+        <h2>Thông tin bạn đã đăng ký</h2>
+        <div id="thongtin"></div>
+    </div>
+
+    <script>
+        function getParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                hoten: params.get("hoten") || "",
+                username: params.get("username") || "",
+                password: params.get("password") || "",
+                confirm: params.get("confirm") || "",
+                ngay: params.get("ngay") || "",
+                thang: params.get("thang") || "",
+                nam: params.get("nam") || "",
+                dienthoai: params.get("dienthoai") || "",
+                diachi: params.get("diachi") || "",
+                email: params.get("email") || "",
+                sothich: params.get("sothich") || "",
+            };
+        }
+
+        const tt = getParams();
+        const display = `
+      <p><strong>Họ và tên:</strong> ${tt.hoten}</p>
+      <p><strong>Tên đăng nhập:</strong> ${tt.username}</p>
+      <p><strong>Ngày sinh:</strong> ${tt.ngay}/${tt.thang}/${tt.nam}</p>
+      <p><strong>Điện thoại:</strong> ${tt.dienthoai}</p>
+      <p><strong>Địa chỉ:</strong> ${tt.diachi}</p>
+      <p><strong>Email khác:</strong> ${tt.email}</p>
+      <p><strong>Sở thích:</strong> ${tt.sothich}</p>
+    `;
+        document.getElementById("thongtin").innerHTML = display;
+    </script>
+</body>
+
+</html>
