@@ -3,9 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bai1</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            border: 1px solid #ccc;
+            width: 960px;
+            margin: 10px auto;
+            display: block;
+        }
+        .gallery-title{
+            text-align: center;
+            font-size: 24px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .gallery-img{
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .caption{
+            text-align: center;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="gallery-title">
+            Animal Gallery
+        </div>
+        <div class="row g-3">
+            <div class="col-md-4 col-sm-6">
+                <a href="lion.jpg" data-lightbox="animals" data-title="Lion">
+                    <img src="../images/lion.jpg" class="gallery-img" alt="Lion">
+                </a>
+                <div class="caption">Lion</div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="cat.jpg" data-lightbox="animals" data-title="Cat">
+                    <img src="../images/cat.jpg" class="gallery-img" alt="Cat">
+                </a>
+                <div class="caption">Cat</div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="bird.jpg" data-lightbox="animals" data-title="Bird">
+                    <img src="../images/bird.jpg" class="gallery-img" alt="Bird">
+                </a>
+                <div class="caption">Bird</div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="Rhino.jpg" data-lightbox="animals" data-title="Rhino">
+                    <img src="../images/Rhino.jpg" class="gallery-img" alt="Rhino">
+                </a>
+                <div class="caption">Rhino</div>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <a href="panda.jpg" data-lightbox="animals" data-title="Panda">
+                    <img src="../images/panda.jpg" class="gallery-img" alt="Panda">
+                </a>
+                <div class="caption">Panda</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
